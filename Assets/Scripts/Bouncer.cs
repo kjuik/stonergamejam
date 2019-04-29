@@ -23,6 +23,13 @@ public class Bouncer : MonoBehaviour
             Velocity += force * deltaTime * vecToAnchor.normalized * -1f;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        foreach (var t in Anchors)
+            Gizmos.DrawLine(transform.position, t.position);
+    }
 }
 
 public class BouncerSystem : ComponentSystem
